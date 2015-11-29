@@ -15,17 +15,17 @@ while True:
     print 'Retrieving', url
     uh = urllib.urlopen(url)
     data = uh.read()
-    print 'Retrieved',len(data),'characters'
+    print('Retrieved',len(data),'characters')
 
     try: js = json.loads(str(data))
     except: js = None
     if 'status' not in js or js['status'] != 'OK':
-        print '==== Failure To Retrieve ===='
-        print data
+        print('==== Failure To Retrieve ====')
+        print(data)
         continue
 
     #print json.dumps(js, indent=4)
 
     placeid = js["results"][0]["place_id"]
 
-    print "Place id: ", placeid
+    print("Place id: ", placeid)
